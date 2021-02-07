@@ -1,12 +1,31 @@
 import React from 'react';
-import MainPage from '../main-page/main-page';
+import Main from '../main/main';
 import PropTypes from 'prop-types';
+import {Switch, Route, BrowserRouter as Router} from 'react-router-dom';
+import FavouritesFilled from '../favourites-filled/favourites-filled';
+import SignIn from '../sign-in/sign-in';
+import Room from '../room/room';
 
 const App = (props) => {
   const {cardItems, offersQuantity} = props;
 
   return (
-    <MainPage cardItems={cardItems} offersQuantity={offersQuantity} />
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          <Main cardItems={cardItems} offersQuantity={offersQuantity} />
+        </Route>
+        <Route exact path="/login">
+          <SignIn/>
+        </Route>
+        <Route exact path="/favourites">
+          <FavouritesFilled/>
+        </Route>
+        <Route exact path="/offer/:id?">
+          <Room/>
+        </Route>
+      </Switch>
+    </Router>
   );
 };
 
