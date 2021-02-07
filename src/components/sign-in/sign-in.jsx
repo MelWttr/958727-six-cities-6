@@ -32,7 +32,7 @@ const SignIn = () => {
   );
 };
 
-SignIn.propTypes = {
-};
+// SignIn.propTypes = {
+// };
 
 export default SignIn;

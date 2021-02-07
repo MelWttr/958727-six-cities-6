@@ -296,7 +296,7 @@ const Room = () => {
   );
 };
 
-Room.propTypes = {
-};
+// Room.propTypes = {
+// };
 
 export default Room;

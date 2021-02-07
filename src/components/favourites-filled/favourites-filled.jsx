@@ -131,7 +131,7 @@ const FavouritesFilled = () => {
   );
 };
 
-FavouritesFilled.propTypes = {
-};
+// FavouritesFilled.propTypes = {
+// };
 
 export default FavouritesFilled;
