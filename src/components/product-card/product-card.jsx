@@ -2,22 +2,24 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const ProductCard = (props) => {
-  const {isMarked = false, cardLink = `#`, price, isInBookmarks, starsWidth, placeName, type, imgSrc} = props;
+  const {isPremium, id, price, isFavorite, rating, title, type, previewImage} = props;
   const IMG_WIDTH = 260;
   const IMG_HEIGHT = 200;
   const ICON_WIDTH = 18;
   const ICON_HEIGHT = 19;
   let cardMark;
-  if (isMarked) {
+  const makeStarsWidth = (starRate) => Math.floor(starRate) * 20;
+
+  if (isPremium) {
     cardMark = <div className="place-card__mark"><span>Premium</span></div>;
   }
 
   return (
-    <article className="cities__place-card place-card">
+    <article className="cities__place-card place-card" onMouseEnter={props.}>
       {cardMark}
       <div className="cities__image-wrapper place-card__image-wrapper">
-        <a href={cardLink}>
-          <img className="place-card__image" src={`img/${imgSrc}`} width={IMG_WIDTH} height={IMG_HEIGHT} alt="Place image" />
+        <a href={`offer/:${id}`}>
+          <img className="place-card__image" src={`img/${previewImage}`} width={IMG_WIDTH} height={IMG_HEIGHT} alt="Place image" />
         </a>
       </div>
       <div className="place-card__info">
@@ -26,21 +28,21 @@ const ProductCard = (props) => {
             <b className="place-card__price-value">€{price}</b>
             <span className="place-card__price-text">/&nbsp;night</span>
           </div>
-          <button className={`place-card__bookmark-button button ${isInBookmarks ? `place-card__bookmark-button--active` : ``}`} type="button">
+          <button className={`place-card__bookmark-button button ${isFavorite ? `place-card__bookmark-button--active` : ``}`} type="button">
             <svg className="place-card__bookmark-icon" width={ICON_WIDTH} height={ICON_HEIGHT}>
               <use xlinkHref="#icon-bookmark" />
             </svg>
-            <span className="visually-hidden">{isInBookmarks ? `To bookmarks` : `In bookmarks`}</span>
+            <span className="visually-hidden">{isFavorite ? `To bookmarks` : `In bookmarks`}</span>
           </button>
         </div>
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">
-            <span style={{width: `${starsWidth}%`}} />
+            <span style={{width: `${makeStarsWidth(rating)}%`}} />
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
         <h2 className="place-card__name">
-          <a href={cardLink}>{placeName}</a>
+          <a href={`offer/:${id}`}>{title}</a>
         </h2>
         <p className="place-card__type">{type}</p>
       </div>
@@ -49,14 +51,15 @@ const ProductCard = (props) => {
 };
 
 ProductCard.propTypes = {
-  isMarked: PropTypes.bool,
-  cardLink: PropTypes.string,
+  id: PropTypes.number,
+  rating: PropTypes.number,
+  title: PropTypes.string,
+  isPremium: PropTypes.bool,
   price: PropTypes.number.isRequired,
-  isInBookmarks: PropTypes.bool,
+  isFavorite: PropTypes.bool,
   starsWidth: PropTypes.number,
   type: PropTypes.string.isRequired,
-  placeName: PropTypes.string.isRequired,
-  imgSrc: PropTypes.string.isRequired,
+  previewImage: PropTypes.string.isRequired,
 };
 
 export default ProductCard;

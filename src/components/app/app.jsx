@@ -5,6 +5,7 @@ import {Switch, Route, BrowserRouter as Router} from 'react-router-dom';
 import FavouritesFilled from '../favourites-filled/favourites-filled';
 import SignIn from '../sign-in/sign-in';
 import Room from '../room/room';
+import PageNotFound from '../page-not-found/page-not-found';
 
 const App = (props) => {
   const {cardItems, offersQuantity} = props;
@@ -23,6 +24,9 @@ const App = (props) => {
         </Route>
         <Route exact path="/offer/:id?">
           <Room/>
+        </Route>
+        <Route>
+          <PageNotFound/>
         </Route>
       </Switch>
     </Router>
