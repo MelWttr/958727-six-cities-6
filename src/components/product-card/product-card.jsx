@@ -1,12 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import {Link} from 'react-router-dom';
+import cardProps from '../../props/card-props';
 
 const ProductCard = (props) => {
-  const {isPremium, id, price, isFavorite, rating, title, type, previewImage} = props;
-  const IMG_WIDTH = 260;
-  const IMG_HEIGHT = 200;
   const ICON_WIDTH = 18;
   const ICON_HEIGHT = 19;
+  const {isPremium, id, price, isFavorite, rating, title, type, previewImage} = props;
+  const {imageWrapperClass = ``, infoWrapperClass = ``} = props;
+  const {imgWidth} = props;
+  const {imgHeight} = props;
+
+  const {blockClassName} = props;
   let cardMark;
   const makeStarsWidth = (starRate) => Math.floor(starRate) * 20;
 
@@ -15,14 +19,14 @@ const ProductCard = (props) => {
   }
 
   return (
-    <article className="cities__place-card place-card" onMouseEnter={props.}>
+    <article className={`${blockClassName} place-card`} data-id={id}>
       {cardMark}
-      <div className="cities__image-wrapper place-card__image-wrapper">
-        <a href={`offer/:${id}`}>
-          <img className="place-card__image" src={`img/${previewImage}`} width={IMG_WIDTH} height={IMG_HEIGHT} alt="Place image" />
-        </a>
+      <div className={`${imageWrapperClass} place-card__image-wrapper`}>
+        <Link to={`offer/${id}`}>
+          <img className="place-card__image" src={`img/${previewImage}`} width={imgWidth} height={imgHeight} alt="Place image" />
+        </Link>
       </div>
-      <div className="place-card__info">
+      <div className={`${infoWrapperClass} place-card__info`}>
         <div className="place-card__price-wrapper">
           <div className="place-card__price">
             <b className="place-card__price-value">€{price}</b>
@@ -42,7 +46,7 @@ const ProductCard = (props) => {
           </div>
         </div>
         <h2 className="place-card__name">
-          <a href={`offer/:${id}`}>{title}</a>
+          <Link to={`offer/:${id}`}>{title}</Link>
         </h2>
         <p className="place-card__type">{type}</p>
       </div>
@@ -50,16 +54,6 @@ const ProductCard = (props) => {
   );
 };
 
-ProductCard.propTypes = {
-  id: PropTypes.number,
-  rating: PropTypes.number,
-  title: PropTypes.string,
-  isPremium: PropTypes.bool,
-  price: PropTypes.number.isRequired,
-  isFavorite: PropTypes.bool,
-  starsWidth: PropTypes.number,
-  type: PropTypes.string.isRequired,
-  previewImage: PropTypes.string.isRequired,
-};
+ProductCard.propTypes = cardProps;
 
 export default ProductCard;

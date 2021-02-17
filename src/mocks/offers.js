@@ -109,7 +109,7 @@ export default [
         longitude: 7.791268,
         zoom: 10
       },
-      name: `Amsterdam`
+      name: `Colonge`
     },
     description: `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.`,
     goods: [`Kitchen`, `Cable TV`, `Washing machine`, `Coffee machine`, `Dishwasher`],
@@ -121,7 +121,7 @@ export default [
     },
     id: 4,
     images: [`room.jpg`, `apartment-01.jpg`, `apartment-02.jpg`, `apartment-03.jpg`, `studio-01.jpg`, `apartment-01.jpg`],
-    isFavorite: false,
+    isFavorite: true,
     isPremium: true,
     location: {
       latitude: 53.64579876496378,

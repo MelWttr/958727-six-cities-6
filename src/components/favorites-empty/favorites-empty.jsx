@@ -1,7 +1,7 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 
-const FavouritesEmpty = () => {
+const FavoritesEmpty = () => {
   return (
     <main className="page__main page__main--favorites page__main--favorites-empty">
       <div className="page__favorites-container container">
@@ -17,7 +17,7 @@ const FavouritesEmpty = () => {
   );
 };
 
-// FavouritesEmpty.propTypes = {
+// FavoritesEmpty.propTypes = {
 // };
 
-export default FavouritesEmpty;
+export default FavoritesEmpty;

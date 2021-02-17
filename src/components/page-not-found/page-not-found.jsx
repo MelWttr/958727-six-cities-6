@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 const PageNotFound = () => {
 
@@ -10,7 +11,7 @@ const PageNotFound = () => {
         <div className="not-found__disclaimer">
           <p>Sorry, that page seems to be taking a break!</p>
           <p>
-              Came back to our <a className="not-found__link" href="#">home page </a>
+              Came back to our <Link to={`/`} className="not-found__link">home page </Link>
               and plan your own break there! </p>
         </div>
       </section>

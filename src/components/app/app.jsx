@@ -2,13 +2,16 @@ import React from 'react';
 import Main from '../main/main';
 import PropTypes from 'prop-types';
 import {Switch, Route, BrowserRouter as Router} from 'react-router-dom';
-import FavouritesFilled from '../favourites-filled/favourites-filled';
+import FavoritesFilled from '../favorites-filled/favorites-filled';
 import SignIn from '../sign-in/sign-in';
 import Room from '../room/room';
 import PageNotFound from '../page-not-found/page-not-found';
 
 const App = (props) => {
   const {cardItems, offersQuantity} = props;
+  const favoriteOffers = cardItems.filter((item) => {
+    return item.isFavorite;
+  });
 
   return (
     <Router>
@@ -19,8 +22,10 @@ const App = (props) => {
         <Route exact path="/login">
           <SignIn/>
         </Route>
-        <Route exact path="/favourites">
-          <FavouritesFilled/>
+        <Route exact path="/favorites">
+          <FavoritesFilled
+            favoriteOffers={favoriteOffers}
+          />
         </Route>
         <Route exact path="/offer/:id?">
           <Room/>
@@ -33,9 +38,11 @@ const App = (props) => {
   );
 };
 
+/* eslint-disable */
+
 App.propTypes = {
-  cardItems: PropTypes.array,
-  offersQuantity: PropTypes.number
+  cardItems:      PropTypes.array.isRequired,
+  offersQuantity: PropTypes.number.isRequired,
 };
 
 export default App;
