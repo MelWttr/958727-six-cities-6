@@ -76,6 +76,7 @@ const Main = ({cardItems, offersQuantity}) => {
 /* eslint-disable */
 Main.propTypes = {
   cardItems:      PropTypes.array,
+
   offersQuantity: PropTypes.number
 };
 
