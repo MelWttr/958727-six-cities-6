@@ -1,14 +1,26 @@
+import constants from '../../constants/constants';
 import React from 'react';
 import {Link} from 'react-router-dom';
 import cardProps from '../../props/card-props';
 
+
 const ProductCard = (props) => {
-  const ICON_WIDTH = 18;
-  const ICON_HEIGHT = 19;
-  const {isPremium, id, price, isFavorite, rating, title, type, previewImage} = props;
-  const {imageWrapperClass = ``, infoWrapperClass = ``} = props;
-  const {imgWidth} = props;
-  const {imgHeight} = props;
+  const {
+    isPremium,
+    id,
+    price,
+    isFavorite,
+    rating,
+    title,
+    type,
+    previewImage,
+    imageWrapperClass = ``,
+    infoWrapperClass = ``,
+    imgWidth,
+    imgHeight
+  } = props;
+
+  const {CARD_ICON_WIDTH, CARD_ICON_HEIGHT} = constants;
 
   const {blockClassName} = props;
   let cardMark;
@@ -33,7 +45,7 @@ const ProductCard = (props) => {
             <span className="place-card__price-text">/&nbsp;night</span>
           </div>
           <button className={`place-card__bookmark-button button ${isFavorite ? `place-card__bookmark-button--active` : ``}`} type="button">
-            <svg className="place-card__bookmark-icon" width={ICON_WIDTH} height={ICON_HEIGHT}>
+            <svg className="place-card__bookmark-icon" width={CARD_ICON_WIDTH} height={CARD_ICON_HEIGHT}>
               <use xlinkHref="#icon-bookmark" />
             </svg>
             <span className="visually-hidden">{isFavorite ? `To bookmarks` : `In bookmarks`}</span>

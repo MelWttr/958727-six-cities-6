@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import ProductCard from '../product-card/product-card';
 
 const FavoritesFilled = ({favoriteOffers}) => {
-  const IMG_WIDTH = 150;
-  const IMG_HEIGHT = 110;
-  const IMAGE_WRAPPER_CLASS = `favorites__image-wrapper`;
-  const INFO_WRAPPER_CLASS = `favorites__card-info`;
-  const BLOCK_CLASS_NAME = `favorites__card`;
+  const imgWidth = 150;
+  const imgHeight = 110;
+  const imageWrapperClass = `favorites__image-wrapper`;
+  const infoWrapperClass = `favorites__card-info`;
+  const BlockClassName = `favorites__card`;
   const cityOffers = favoriteOffers.reduce((cities, offer) => {
     if (!cities[offer.city.name]) {
       cities[offer.city.name] = [offer];
@@ -38,11 +38,11 @@ const FavoritesFilled = ({favoriteOffers}) => {
                       <ProductCard
                         {...cityOffer}
                         key={cityOffer.id + index}
-                        blockClassName={BLOCK_CLASS_NAME}
-                        imgWidth={IMG_WIDTH}
-                        imgHeight={IMG_HEIGHT}
-                        IMAGE_WRAPPER_CLASS={IMAGE_WRAPPER_CLASS}
-                        INFO_WRAPPER_CLASS={INFO_WRAPPER_CLASS}
+                        blockClassName={BlockClassName}
+                        imgWidth={imgWidth}
+                        imgHeight={imgHeight}
+                        imageWrapperClass={imageWrapperClass}
+                        infoWrapperClass={infoWrapperClass}
                       />
                     )}
                   </div>

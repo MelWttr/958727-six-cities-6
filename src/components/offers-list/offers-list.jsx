@@ -3,9 +3,9 @@ import ProductCard from '../product-card/product-card';
 import PropTypes from 'prop-types';
 
 const OffersList = (props) => {
-  const IMG_WIDTH = 260;
-  const IMG_HEIGHT = 200;
-  const BLOCK_CLASS_NAME = `cities__place-card`;
+  const imgWidth = 260;
+  const imgHeight = 200;
+  const blockClassName = `cities__place-card`;
   const [activeCardId, setActiveId] = useState(null);
 
   const onMouseOverHandler = (evt) => {
@@ -38,9 +38,9 @@ const OffersList = (props) => {
       {props.offers.map((offer) => <ProductCard
         {...offer}
         key={offer.id}
-        blockClassName={BLOCK_CLASS_NAME}
-        imgWidth={IMG_WIDTH}
-        imgHeight={IMG_HEIGHT}
+        blockClassName={blockClassName}
+        imgWidth={imgWidth}
+        imgHeight={imgHeight}
       />
       )}
     </div>

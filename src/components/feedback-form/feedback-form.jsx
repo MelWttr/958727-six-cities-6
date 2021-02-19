@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 
 const FeedbackForm = () => {
   const [comment, setRatingValue] = useState(0);
-  const [, setCommentValue] = useState(``);
   const [submit, disableSubmit] = useState(true);
 
   const handleSubmit = (evt) => {
@@ -23,10 +22,7 @@ const FeedbackForm = () => {
         break;
       case `review`:
         value = target.value;
-        setCommentValue(value);
-        if (value.length >= 50) {
-          disableSubmit(false);
-        }
+        disableSubmit(value.length <= 50);
         break;
     }
   };

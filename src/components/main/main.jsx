@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import OffersList from '../offers-list/offers-list';
 
-const Main = (props) => {
-  const {cardItems, offersQuantity} = props;
+const Main = ({cardItems, offersQuantity}) => {
   return (
     <main className="page__main page__main--index">
       <h1 className="visually-hidden">Cities</h1>

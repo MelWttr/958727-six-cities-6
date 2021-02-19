@@ -7,8 +7,7 @@ import SignIn from '../sign-in/sign-in';
 import Room from '../room/room';
 import PageNotFound from '../page-not-found/page-not-found';
 
-const App = (props) => {
-  const {cardItems, offersQuantity} = props;
+const App = ({cardItems, offersQuantity}) => {
   const favoriteOffers = cardItems.filter((item) => {
     return item.isFavorite;
   });
