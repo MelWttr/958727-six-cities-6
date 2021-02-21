@@ -22,8 +22,9 @@ export default [
     isFavorite: false,
     isPremium: false,
     location: {
-      latitude: 52.35514938496378,
-      longitude: 4.673877537499948,
+      title: `Парк Ферри Поинт`,
+      lat: 40.814909,
+      lng: -73.830682,
       zoom: 8
     },
     maxAdults: 4,
@@ -56,8 +57,9 @@ export default [
     isFavorite: true,
     isPremium: false,
     location: {
-      latitude: 53.65514938496378,
-      longitude: 5.573877537499948,
+      title: `Парк Инвуд-Хилл`,
+      lat: 40.870817,
+      lng: -73.927112,
       zoom: 8
     },
     maxAdults: 2,
@@ -71,8 +73,8 @@ export default [
     bedrooms: 4,
     city: {
       location: {
-        latitude: 55.373496,
-        longitude: 7.891268,
+        lat: 40.862413,
+        lng: -73.879357,
         zoom: 10
       },
       name: `Amsterdam`
@@ -90,8 +92,9 @@ export default [
     isFavorite: true,
     isPremium: true,
     location: {
-      latitude: 53.65514876496378,
-      longitude: 5.573873597499948,
+      title: `Пелхэм-Бей-Парк`,
+      lat: 40.877312,
+      lng: -73.807182,
       zoom: 8
     },
     maxAdults: 4,
@@ -124,8 +127,9 @@ export default [
     isFavorite: true,
     isPremium: true,
     location: {
-      latitude: 53.64579876496378,
-      longitude: 5.5738710895499948,
+      title: `Парк Саундвью`,
+      lat: 40.816881,
+      lng: -73.872768,
       zoom: 8
     },
     maxAdults: 4,

@@ -1,8 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import OffersList from '../offers-list/offers-list';
+import city from '../../mocks/city';
+import Map from '../map/map';
 
 const Main = ({cardItems, offersQuantity}) => {
+  const offersCoords = cardItems.map((item) => {
+    return item.location;
+  });
   return (
     <main className="page__main page__main--index">
       <h1 className="visually-hidden">Cities</h1>
@@ -65,7 +70,9 @@ const Main = ({cardItems, offersQuantity}) => {
             <OffersList offers={cardItems}/>
           </section>
           <div className="cities__right-section">
-            <section className="cities__map map" />
+            <section className="cities__map map">
+              <Map city={city} coords={offersCoords}/>
+            </section>
           </div>
         </div>
       </div>
