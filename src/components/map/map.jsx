@@ -51,8 +51,8 @@ Map.propTypes = {
     zoom: PropTypes.number.isRequired,
   }),
   coords: PropTypes.arrayOf(PropTypes.shape({
-    latitude: PropTypes.number.isRequired,
-    longitude: PropTypes.number.isRequired,
+    lat: PropTypes.number.isRequired,
+    lng: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
   }))
 };
