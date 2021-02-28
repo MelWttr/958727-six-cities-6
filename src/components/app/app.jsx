@@ -1,14 +1,15 @@
 import React from 'react';
 import Main from '../main/main';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 import {Switch, Route, BrowserRouter as Router} from 'react-router-dom';
 import FavoritesFilled from '../favorites-filled/favorites-filled';
 import SignIn from '../sign-in/sign-in';
 import Room from '../room/room';
 import PageNotFound from '../page-not-found/page-not-found';
 
-const App = ({cardItems, offersQuantity}) => {
-  const favoriteOffers = cardItems.filter((item) => {
+const App = ({cityOffers}) => {
+  const favoriteOffers = cityOffers.filter((item) => {
     return item.isFavorite;
   });
 
@@ -16,7 +17,7 @@ const App = ({cardItems, offersQuantity}) => {
     <Router>
       <Switch>
         <Route exact path="/">
-          <Main cardItems={cardItems} offersQuantity={offersQuantity} />
+          <Main/>
         </Route>
         <Route exact path="/login">
           <SignIn/>
@@ -40,8 +41,12 @@ const App = ({cardItems, offersQuantity}) => {
 /* eslint-disable */
 
 App.propTypes = {
-  cardItems:      PropTypes.array.isRequired,
-  offersQuantity: PropTypes.number.isRequired,
+  cityOffers:      PropTypes.array.isRequired,
 };
 
-export default App;
+const mapStateToProps = (state) => ({
+  cityOffers: state.cityOffers,
+});
+
+export {App};
+export default connect(mapStateToProps, null)(App);

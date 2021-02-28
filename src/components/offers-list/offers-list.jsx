@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import ProductCard from '../product-card/product-card';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 
 const OffersList = (props) => {
   const imgWidth = 260;
@@ -35,7 +36,7 @@ const OffersList = (props) => {
   return (
     <div className="cities__places-list places__list tabs__content" onMouseOut={onMouseOutHandler}
       onMouseOver={onMouseOverHandler}>
-      {props.offers.map((offer) => <ProductCard
+      {props.cityOffers.map((offer) => <ProductCard
         {...offer}
         key={offer.id}
         blockClassName={blockClassName}
@@ -47,6 +48,11 @@ const OffersList = (props) => {
   );
 };
 
-OffersList.propTypes = {offers: PropTypes.array};
+OffersList.propTypes = {cityOffers: PropTypes.array};
 
-export default OffersList;
+const mapStateToProps = (state) => ({
+  cityOffers: state.cityOffers
+});
+
+export {OffersList};
+export default connect(mapStateToProps, null)(OffersList);

@@ -3,16 +3,16 @@ import PropTypes from 'prop-types';
 import leaflet from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
-const Map = ({city, coords}) => {
+const Map = ({cityLocation, coords}) => {
   const mapRef = useRef();
 
   useEffect(() => {
     mapRef.current = leaflet.map(`map`, {
       center: {
-        lat: city.lat,
-        lng: city.lng
+        lat: cityLocation.lat,
+        lng: cityLocation.lng,
       },
-      zoom: city.zoom
+      zoom: cityLocation.zoom
     });
 
     leaflet
@@ -37,7 +37,11 @@ const Map = ({city, coords}) => {
       .addTo(mapRef.current)
       .bindPopup(coord.title);
     });
-  });
+
+    return () => {
+      mapRef.current.remove();
+    };
+  }, [cityLocation]);
 
   return (
     <div id="map" style={{height: `100%`}} ref={mapRef}/>
@@ -45,7 +49,7 @@ const Map = ({city, coords}) => {
 };
 
 Map.propTypes = {
-  city: PropTypes.shape({
+  cityLocation: PropTypes.shape({
     lat: PropTypes.number.isRequired,
     lng: PropTypes.number.isRequired,
     zoom: PropTypes.number.isRequired,

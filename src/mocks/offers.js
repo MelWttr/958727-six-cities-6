@@ -3,8 +3,8 @@ export default [
     bedrooms: 3,
     city: {
       location: {
-        latitude: 52.370216,
-        longitude: 4.895168,
+        lat: 40.835292,
+        lng: -73.916236,
         zoom: 10
       },
       name: `Amsterdam`
@@ -38,11 +38,11 @@ export default [
     bedrooms: 1,
     city: {
       location: {
-        latitude: 52.370896,
-        longitude: 5.895168,
+        lat: 40.835292,
+        lng: -73.916236,
         zoom: 10
       },
-      name: `Amsterdam`
+      name: `Paris`
     },
     description: `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.`,
     goods: [`Heating`, `Cable TV`],
@@ -73,8 +73,8 @@ export default [
     bedrooms: 4,
     city: {
       location: {
-        lat: 40.862413,
-        lng: -73.879357,
+        lat: 40.835292,
+        lng: -73.916236,
         zoom: 10
       },
       name: `Amsterdam`
@@ -108,11 +108,11 @@ export default [
     bedrooms: 4,
     city: {
       location: {
-        latitude: 55.375876,
-        longitude: 7.791268,
+        lat: 40.835292,
+        lng: -73.916236,
         zoom: 10
       },
-      name: `Colonge`
+      name: `Cologne`
     },
     description: `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.`,
     goods: [`Kitchen`, `Cable TV`, `Washing machine`, `Coffee machine`, `Dishwasher`],
