@@ -1,3 +1,3 @@
-import offers from '../mocks/offers';
+export const getCityOffers = (state) => state.offers.filter((offer) => offer.city.name === state.activeCity);
 
-export const getCityOffers = (city) => offers.filter((offer) => offer.city.name === city);
+export const getFavoriteOffers = (state) => getCityOffers(state).filter((offer) => offer.is_favorite);

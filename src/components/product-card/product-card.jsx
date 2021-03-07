@@ -1,4 +1,4 @@
-import constants from '../../constants/constants';
+import {CARD_ICON_WIDTH, CARD_ICON_HEIGHT} from '../../constants/constants';
 import React from 'react';
 import {Link} from 'react-router-dom';
 import cardProps from '../../props/card-props';
@@ -20,8 +20,6 @@ const ProductCard = (props) => {
     imgHeight
   } = props;
 
-  const {CARD_ICON_WIDTH, CARD_ICON_HEIGHT} = constants;
-
   const {blockClassName} = props;
   let cardMark;
   const makeStarsWidth = (starRate) => Math.floor(starRate) * 20;
@@ -35,7 +33,7 @@ const ProductCard = (props) => {
       {cardMark}
       <div className={`${imageWrapperClass} place-card__image-wrapper`}>
         <Link to={`offer/${id}`}>
-          <img className="place-card__image" src={`img/${previewImage}`} width={imgWidth} height={imgHeight} alt="Place image" />
+          <img className="place-card__image" src={`${previewImage}`} width={imgWidth} height={imgHeight} alt="Place image" />
         </Link>
       </div>
       <div className={`${infoWrapperClass} place-card__info`}>

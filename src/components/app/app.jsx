@@ -7,11 +7,9 @@ import FavoritesFilled from '../favorites-filled/favorites-filled';
 import SignIn from '../sign-in/sign-in';
 import Room from '../room/room';
 import PageNotFound from '../page-not-found/page-not-found';
+import {getCityOffers} from '../../utils/utils';
 
-const App = ({cityOffers}) => {
-  const favoriteOffers = cityOffers.filter((item) => {
-    return item.isFavorite;
-  });
+const App = () => {
 
   return (
     <Router>
@@ -24,7 +22,6 @@ const App = ({cityOffers}) => {
         </Route>
         <Route exact path="/favorites">
           <FavoritesFilled
-            favoriteOffers={favoriteOffers}
           />
         </Route>
         <Route exact path="/offer/:id?">
@@ -45,7 +42,7 @@ App.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  cityOffers: state.cityOffers,
+  cityOffers: getCityOffers(state),
 });
 
 export {App};

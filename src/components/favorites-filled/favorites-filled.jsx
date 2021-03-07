@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ProductCard from '../product-card/product-card';
+import {connect} from 'react-redux';
+import {getFavoriteOffers} from '../../utils/utils';
 
 const FavoritesFilled = ({favoriteOffers}) => {
   const imgWidth = 150;
@@ -58,4 +60,9 @@ const FavoritesFilled = ({favoriteOffers}) => {
 
 FavoritesFilled.propTypes = {favoriteOffers: PropTypes.array.isRequired};
 
-export default FavoritesFilled;
+const mapStateToProps = (state) => ({
+  offers: getFavoriteOffers(state)
+});
+
+export {FavoritesFilled};
+export default connect(mapStateToProps, null)(FavoritesFilled);

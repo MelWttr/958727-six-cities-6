@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import leaflet from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
-const Map = ({cityLocation, coords}) => {
+const Map = ({cityLocation, points}) => {
   const mapRef = useRef();
 
   useEffect(() => {
     mapRef.current = leaflet.map(`map`, {
       center: {
-        lat: cityLocation.lat,
-        lng: cityLocation.lng,
+        lat: cityLocation.latitude,
+        lng: cityLocation.longitude,
       },
       zoom: cityLocation.zoom
     });
@@ -21,21 +21,21 @@ const Map = ({cityLocation, coords}) => {
     })
     .addTo(mapRef.current);
 
-    coords.forEach((coord) => {
+    points.forEach((point) => {
       const mapPinIcon = leaflet.icon({
         iconUrl: `../../../img/pin.svg`,
         iconSize: [27, 39]
       });
 
       leaflet.marker({
-        lat: coord.lat,
-        lng: coord.lng
+        lat: point.location.latitude,
+        lng: point.location.longitude
       },
       {
         icon: mapPinIcon
       })
       .addTo(mapRef.current)
-      .bindPopup(coord.title);
+      .bindPopup(point.title);
     });
 
     return () => {
@@ -50,15 +50,11 @@ const Map = ({cityLocation, coords}) => {
 
 Map.propTypes = {
   cityLocation: PropTypes.shape({
-    lat: PropTypes.number.isRequired,
-    lng: PropTypes.number.isRequired,
+    latitude: PropTypes.number.isRequired,
+    longitude: PropTypes.number.isRequired,
     zoom: PropTypes.number.isRequired,
   }),
-  coords: PropTypes.arrayOf(PropTypes.shape({
-    lat: PropTypes.number.isRequired,
-    lng: PropTypes.number.isRequired,
-    title: PropTypes.string.isRequired,
-  }))
+  points: PropTypes.array.isRequired
 };
 
 export default Map;

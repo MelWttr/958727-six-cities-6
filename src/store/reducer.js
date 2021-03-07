@@ -1,14 +1,12 @@
 import {ActionType} from './action';
-import constants from '../constants/constants';
-import offers from '../mocks/offers';
-import {getCityOffers} from '../utils/utils';
-
-const {CITIES} = constants;
+import {Cities, AuthorizationStatus} from '../constants/constants';
+import {adaptOffers} from '../utils/adapter';
 
 const initialState = {
-  offers,
-  cityOffers: getCityOffers(CITIES.PARIS),
-  activeCity: CITIES.PARIS,
+  offers: [],
+  activeCity: Cities.PARIS,
+  isFetched: false,
+  authorizationStatus: AuthorizationStatus.NO_AUTH,
 };
 
 const reducer = (state = initialState, {type, payload}) => {
@@ -18,11 +16,18 @@ const reducer = (state = initialState, {type, payload}) => {
         ...state,
         activeCity: payload
       };
-    case ActionType.CREATE_OFFERS:
+    case ActionType.LOAD_OFFERS:
       return {
         ...state,
-        cityOffers: getCityOffers(state.activeCity),
+        offers: adaptOffers(payload),
+        isFetched: true
       };
+    case ActionType.REQUIRE_AUTHORIZATION:
+      return {
+        ...state,
+        authorizationStatus: payload
+      };
+
     default:
       return state;
   }
