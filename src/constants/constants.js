@@ -10,18 +10,25 @@ export const Cities = {
   DUSSELDORF: `Dusseldorf`
 };
 
-export const Routes = {
-  OFFERS: `/hotels`,
-  OFFER: `/hotels/:id`,
-  OFFERS_NEARBY: `/hotels/:hotel_id/nearby`,
-  FAVORITES: `/favorite`,
-  REVIEWS: `/comments/:hotel_id`,
-  LOGIN: `/login`,
-  LOGOUT: `/logout`
-};
-
 export const AuthorizationStatus = {
   AUTH: `AUTH`,
   NO_AUTH: `NO_AUTH`,
+};
+
+export const ApiRoutes = {
+  OFFERS: `/hotels`,
+  OFFER: `/hotels/:id`,
+  OFFERS_NEARBY: `/hotels/:hotel_id/nearby`,
+  FAVORITES: `/favorites`,
+  REVIEWS: `/comments/:hotel_id`,
+  LOGIN: `/login`,
+  LOGOUT: `/logout`,
+};
+
+export const AppRoutes = {
+  LOGIN: `/login`,
+  LOGOUT: `/logout`,
+  MAIN: `/`,
+  FAVORITES: `/favorites`,
 };
 

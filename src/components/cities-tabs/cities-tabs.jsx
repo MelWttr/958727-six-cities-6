@@ -5,7 +5,7 @@ import City from "../city/city.jsx";
 const CitiesTabs = ({cities}) => {
 
   return (
-    <div className="cities tabs">
+    <div className="tabs">
       <section className="locations container">
         <ul className="locations__list tabs__list">
           {Object.values(cities).map((city, index) => <City

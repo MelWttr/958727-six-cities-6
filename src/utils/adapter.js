@@ -21,3 +21,9 @@ export const adaptOffers = (serverOffersData) => {
     return adaptOffer(offerData);
   });
 };
+
+export const adaptUserData = (serverUserData) => {
+// eslint-disable-next-line
+  const newUserData = {avatar_url: `avatarUrl`};
+  return renameKeys(serverUserData, newUserData);
+};

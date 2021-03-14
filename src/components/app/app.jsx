@@ -2,28 +2,28 @@ import React from 'react';
 import Main from '../main/main';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {Switch, Route, BrowserRouter as Router} from 'react-router-dom';
+import {Switch, Route, Router} from 'react-router-dom';
 import FavoritesFilled from '../favorites-filled/favorites-filled';
 import SignIn from '../sign-in/sign-in';
 import Room from '../room/room';
 import PageNotFound from '../page-not-found/page-not-found';
 import {getCityOffers} from '../../utils/utils';
+import PrivateRoute from '../private-route/private-route';
+import browserHistory from '../../utils/history';
+import {AppRoutes} from '../../constants/constants';
 
 const App = () => {
 
   return (
-    <Router>
+    <Router history={browserHistory}>
       <Switch>
-        <Route exact path="/">
+        <Route exact path={AppRoutes.MAIN}>
           <Main/>
         </Route>
-        <Route exact path="/login">
+        <Route exact path={AppRoutes.LOGIN}>
           <SignIn/>
         </Route>
-        <Route exact path="/favorites">
-          <FavoritesFilled
-          />
-        </Route>
+        <PrivateRoute exact path={AppRoutes.FAVORITES} render={() => <FavoritesFilled/>} />
         <Route exact path="/offer/:id?">
           <Room/>
         </Route>

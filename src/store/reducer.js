@@ -7,6 +7,7 @@ const initialState = {
   activeCity: Cities.PARIS,
   isFetched: false,
   authorizationStatus: AuthorizationStatus.NO_AUTH,
+  userData: {}
 };
 
 const reducer = (state = initialState, {type, payload}) => {
@@ -26,6 +27,11 @@ const reducer = (state = initialState, {type, payload}) => {
       return {
         ...state,
         authorizationStatus: payload
+      };
+    case ActionType.SET_USER_DATA:
+      return {
+        ...state,
+        userData: payload
       };
 
     default:
